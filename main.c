@@ -4,32 +4,40 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 
-int sumTwo(int a,int b) {
-	return a+b;
+
+int factorial(int n) {
+	int res =1;
+	int i;
+	for (i=1; i<=n; i++)
+		res*=i;
+	return res;
 }
 
-int square(int n) {
-	return n*n;
+
+
+int combination(int n, int r) {
+	
+	int p,q; //각각 분자 분모
+	p=factorial(n);
+	q=factorial(n-r) * factorial(r);
+	return p/q;
+	
 }
 
-int get_max(int x,int y) {
-	
-	if (x>y)
-		return x;
-	
-	else if ( x<y )
-		return y;
-	else
-	{printf("same");
-	}
-}
 
 
 int main(void) {
-	printf("%d\n",sumTwo(3,5));
-	printf("%d\n",square(3));
-	printf("%d\n",get_max(3,5));
+	
+	int n,r;
+	
+	//정수 입력 받기 
+	printf("input n and r : ");
+	scanf("%d %d", &n,&r);
+	
+	//
+	int result;
+	result=combination(n,r);
+	printf("combination(n,r) is %d", result);
 	
 	
-	return 0;
 }
